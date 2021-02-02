@@ -1,1 +1,35 @@
 
+HOW TO Fxxk Android AKAMAI
+
+                //System.out.println(str);
+                String[] arr_100 = str.split(",");
+
+                //电量
+                arr_100[7] =(30+new Random().nextInt(40))+"";
+
+                //System.out.println(arr_100[19]);//android
+                //一個賬號永久綁定一個uuid
+                arr_100[19] = android;
+
+                //adb
+                arr_100[22] = "0";
+
+                //arr_100[10] 7.1.2安卓版本号
+                arr_100[10] = release;
+                // arr_100[25] 7.1.2 的sdk是25 25的android是uuid
+                arr_100[25] = sdkInt;
+                StringBuilder lSb = new StringBuilder();
+                for(int j=1;j<=37;j++){
+                    lSb.append(arr_100[j]);
+                    lSb.append(",");
+                }
+                lSb.deleteCharAt(lSb.length()-1);
+                //System.out.println(lSb);
+                arr_100[38] = ""+a(lSb.toString());
+                //System.out.println(arr_100[38]);
+
+                ;                //System.out.println(arr_100[39]);//new Random().nextInt();
+                arr_100[39] = new Random().nextInt()+"";
+                //System.out.println(arr_100[40]);//startTime/2
+                arr_100[40] = startTime/2+"";
+                join(result, arr_100);
