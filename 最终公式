@@ -1,0 +1,78 @@
+String sensor = 3.0.0 + sensor;
+//工作量证明
+String pow = android+";"+openDeviceTime+";"+nike.getNonce()+";"+nike.getDifficulty()+";"+nike.getChecksum()+";";
+String s = a(sensor) + "$" + pow
+
+    //加密函数
+    public final String a(String s) throws Exception {
+        try {
+            try {
+                if (this.a == null || this.b == null) {
+                    this.b();
+                }
+                final long uptimeMillis = new Date().getTime();
+                final StringBuilder sb = new StringBuilder("Building sensor data, plain data size: ");
+                sb.append(s.length());
+                //System.out.println("SensorDataBuilder " + sb.toString());
+                final long uptimeMillis2 = new Date().getTime();
+                final Cipher instance = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                instance.init(1, this.a);
+                final byte[] doFinal = instance.doFinal(s.getBytes());
+                final long n = (new Date().getTime() - uptimeMillis2) * 1000L;
+                final byte[] iv = instance.getIV();
+                final byte[] array = new byte[doFinal.length + iv.length];
+                System.arraycopy(iv, 0, array, 0, iv.length);
+                System.arraycopy(doFinal, 0, array, iv.length, doFinal.length);
+                final SecretKeySpec secretKeySpec = new SecretKeySpec(this.b.getEncoded(), "HmacSHA256");
+                final long uptimeMillis3 = new Date().getTime();
+                final Mac instance2 = Mac.getInstance("HmacSHA256");
+                instance2.init(secretKeySpec);
+                final byte[] doFinal2 = instance2.doFinal(array);
+                final long n2 = (new Date().getTime() - uptimeMillis3) * 1000L;
+                final byte[] array2 = new byte[array.length + doFinal2.length];
+                System.arraycopy(array, 0, array2, 0, array.length);
+                System.arraycopy(doFinal2, 0, array2, array.length, doFinal2.length);
+                final long uptimeMillis4 = new Date().getTime();
+                s = Base64.encodeToString(array2, 2);
+                final long n3 = 1000L * (new Date().getTime() - uptimeMillis4);
+                new StringBuilder("Encrypted size: ").append(array2.length);
+                new StringBuilder("Base64 Encrypted size: ").append(s.length());
+                final StringBuilder sb2 = new StringBuilder("AEStime: ");
+                sb2.append(n);
+                sb2.append(", HMACtime: ");
+                sb2.append(n2);
+                sb2.append(", B64time: ");
+                sb2.append(n3);
+                final StringBuilder sb3 = new StringBuilder("2,a,");
+                sb3.append(this.c);
+                sb3.append(",");
+                sb3.append(this.d);
+                final String string = sb3.toString();
+                final StringBuilder sb4 = new StringBuilder();
+                sb4.append(n);
+                sb4.append(",");
+                sb4.append(n2);
+                sb4.append(",");
+                sb4.append(n3);
+                final String string2 = sb4.toString();
+                final StringBuilder sb5 = new StringBuilder();
+                sb5.append(string);
+                sb5.append("$");
+                sb5.append(s);
+                sb5.append("$");
+                sb5.append(string2);
+                s = sb5.toString();
+                final long uptimeMillis5 = new Date().getTime();
+                final StringBuilder sb6 = new StringBuilder("Cipher-BuildSensorData-Time: ");
+                sb6.append(uptimeMillis5 - uptimeMillis);
+                sb6.append("ms");
+                //System.out.println("SensorDataBuilder "+ sb6.toString());
+                // monitorexit(this)
+                return s;
+            }
+            finally {}
+        }
+        catch (Exception ex) {
+            throw ex;
+        }
+    }
