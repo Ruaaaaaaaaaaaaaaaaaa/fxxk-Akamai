@@ -1,1 +1,110 @@
 
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("-1");
+                            sb.append(",uaend,-1,");
+                            sb.append(i2);//屏幕
+                            sb.append(",");
+                            sb.append(i3);//屏幕
+                            sb.append(",");
+                            //电池状态BatteryManager.BATTERY_STATUS_UNKNOWN)
+
+                            // 得到电池状态：
+                            // BatteryManager.BATTERY_STATUS_CHARGING：充电状态。
+                            // BatteryManager.BATTERY_STATUS_DISCHARGING：放电状态。
+                            // BatteryManager.BATTERY_STATUS_NOT_CHARGING：未充满。
+                            // BatteryManager.BATTERY_STATUS_FULL：充满电。
+                            // BatteryManager.BATTERY_STATUS_UNKNOWN：未知状态。
+
+                            sb.append(((Boolean) pair.first).booleanValue() ? 1 : 0);
+                            sb.append(",");
+                            //电量
+                            sb.append(pair.second);//55?
+                            sb.append(",");
+                            sb.append(i4);//屏幕朝向 1，2，-1未知
+                            sb.append(",");
+                            sb.append(g0.d(language));//zh
+                            sb.append(",");
+                            sb.append(g0.d(str2));//7.1.2 公布的版本（一般用于手机信息的系统版本） ro.build.version.release
+                            sb.append(",");
+                            sb.append(i5);// 屏幕旋转 0or1
+                            sb.append(",");
+                            sb.append(g0.d(str3));//MI%209 Build.MODEL
+                            sb.append(",");
+                            //getprop ro.bootloader 获取关联好几个
+                            //ro.build.display.id
+                            //ro.build.fingerprint
+                            sb.append(g0.d(str4));//G9550ZHU1AQEE ro.bootloader  bootloader版本号?unknown
+                            sb.append(",");
+                            sb.append(g0.d(str5));//kirin980 硬件名字？
+                            sb.append(",");
+                            sb.append(g0.d("-1"));
+                            sb.append(",");
+                            sb.append(packageName);//com.nike.snkrs
+                            sb.append(",");
+                            sb.append(g0.d("-1"));
+                            sb.append(",-1,");
+                            sb.append(a2);//Build.VERSION.SDK_INT >= 26 android 或者uuid
+                            sb.append(",-1,");
+                            sb.append(i6);//0 1or0 键盘的什么状态
+                            sb.append(",");
+                            sb.append(i7);//1  adb是否可用 这个改成0试试
+                            sb.append(",");
+                            sb.append(g0.d(str6));//REL  版本编码名称 ro.build.version.codename
+                            sb.append(",");
+                            //会和ro.build.description和ro.build.fingerprint匹配？
+                            sb.append(g0.d(str));//700201021  版本增加说明 ro.build.version.incremental eng.root.20160613
+                            sb.append(",");
+                            //比如这里是25 上面的android应该是uuid!!!!
+                            sb.append(i);//25 Build.VERSION.SDK_INT
+                            sb.append(",");
+                            sb.append(g0.d(str8));//Xiaomi ro.product.manufacturer 	制造商 OPPO samsung
+                            sb.append(",");
+                            sb.append(g0.d(str9));//MI%209 ro.product.name 机器名  dream2qltezh
+                            sb.append(",");
+                            sb.append(g0.d(str10));//release-keys ro.build.tags 系统标记
+                            sb.append(",");
+                            sb.append(g0.d(str11));//user ro.build.type 系统编译类型
+                            sb.append(",");
+                            sb.append(g0.d(str12));//compiler ro.build.user 系统用户名 root dpi
+                            sb.append(",");
+                            //ro.product.device +
+                            // "-" +
+                            // ro.build.type + "%20"+
+                            // ro.build.version.release
+                            //+"%20"+
+                            // ro.build.id + "%20" +
+                            // ro.build.version.incremental +"%20"
+                            //ro.build.tags
+                            sb.append(g0.d(str13));//MI%209-user%207.1.2%20NMF26X%20700201021%20release-keys ro.build.display.id 显示标识 1.KTU84P release-keys 2.N2G48H.G9550ZHU1AQEE
+                            sb.append(",");
+                            sb.append(g0.d(str14));//VOG ro.product.board 主板名 msm8916 msm8998
+                            sb.append(",");
+                            sb.append(g0.d(str15));//Xiaomi ro.product.brand 机器品牌 OPPO
+                            sb.append(",");
+                            sb.append(g0.d(str16));//MI%209 ro.product.device 设备名 msm8916_32 A31u dream2qltechn
+                            sb.append(",");
+//                            String finger = SystemProperties.get("ro.build.fingerprint");
+//                            if (TextUtils.isEmpty(finger)) {
+//                                finger = getString("ro.product.brand") + '/' +
+//                                        getString("ro.product.name") + '/' +
+//                                        getString("ro.product.device") + ':' +
+//                                        getString("ro.build.version.release") + '/' +
+//                                        getString("ro.build.id") + '/' +
+//                                        getString("ro.build.version.incremental") + ':' +
+//                                        getString("ro.build.type") + '/' +
+//                                        getString("ro.build.tags");
+//                            }
+//                            return finger;
+//                         such as OPPO/A31u/A31u:4.4.4/KTU84P/1390465867:user/release-keys
+                            //     OPPO/msm8916_32/msm8916_32:4.4.4/KTU84P/eng.root.20160613:user/release-keys
+                            // 文件里的  ro.build.version.incremental 是700201021
+                            //samsung/dream2qltezh/dream2qltechn:7.1/N2G48H/G9550ZHU1AQEE:user/release-keys
+                            sb.append(g0.d(str17));//Xiaomi/MI%209/MI%209:7.1.2/NMF26X/700201021:user/release-keys
+                            sb.append(",");
+                            sb.append(g0.d(str18));//WUH1000105879 ro.build.host 系统主机名 1.ubuntu-121-114 2.SWHD7308
+                            sb.append(",");
+                            //和ro.build.display.id=N2G48H.G9550ZHU1AQEE有关联？
+                            sb.append(g0.d(str19));//NMF26X ro.build.id 编译标识 N2G48H KTU84P
+                            String sb2 = sb.toString();
+                            n.a("SystemInfoListener", "System Info: ".concat(String.valueOf(sb2)), new Throwable[0]);
+                            s.l = sb2;
